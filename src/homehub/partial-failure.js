@@ -2,8 +2,12 @@
 // If a device is unavailable, skip that action, continue where safe,
 // and tell the user exactly what did not run.
 
+export function isUnavailable(result) {
+  return result.status === "unavailable" || result.status === "offline";
+}
+
 export function summariseRun(results) {
-  const skipped = results.filter(r => r.status === "unavailable");
+  const skipped = results.filter(isUnavailable);
   return {
     completed: results.length - skipped.length,
     skipped: skipped.map(r => r.deviceName),
