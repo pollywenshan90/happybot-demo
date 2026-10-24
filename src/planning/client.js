@@ -21,5 +21,9 @@ export async function requestPlan({ goal, devices, role }, { baseUrl, fetchImpl 
   }
 }
 
-// TODO(HBT-11): retry with backoff on 5xx
+export function shouldRetry(status, attempt, maxAttempts = 3) {
+  return status >= 500 && attempt < maxAttempts;
+}
+
+// TODO(HBT-11): use shouldRetry with exponential backoff in requestPlan
 // TODO(HBT-11): map planner device IDs to HomeHub device IDs
