@@ -16,6 +16,7 @@ function describe({ action, params = {} }) {
     case "set_temperature": return `Set to ${params.celsius}°C`;
     case "lock": return "Lock";
     case "turn_off": return "Turn off";
+    case "unlock": return "Unlock";
     default: return action;
   }
 }
