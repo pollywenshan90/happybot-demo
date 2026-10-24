@@ -1,6 +1,7 @@
 // Planning API contract v1 (agreed with Cyberdyne Engineering) – HBT-10
 // Input: goal text, household device inventory, requesting user's role.
-// Output: ordered list of proposed actions. The planner proposes only; it never executes.
+// Output: ordered list of proposed actions (device ID, action, parameters).
+// The planner proposes only; it never executes. Execution belongs to HomeHub.
 
 export const CONTRACT_VERSION = 1;
 
